@@ -176,3 +176,7 @@ tags
 
 # wandb
 wandb
+
+# personal
+examples/dreambooth/lily_saved_model/checkpoint-*/
+examples/text_to_image/lily_saved_model/checkpoint-*/

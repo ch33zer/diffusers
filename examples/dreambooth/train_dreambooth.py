@@ -700,7 +700,7 @@ class DreamBoothDataset(Dataset):
                 )
                 example["class_prompt_ids"] = class_text_inputs.input_ids
                 example["class_attention_mask"] = class_text_inputs.attention_mask
-
+        print(example["instance_images"].shape)
         return example
 
 
@@ -920,11 +920,12 @@ def main(args):
         args.pretrained_model_name_or_path, subfolder="text_encoder", revision=args.revision, variant=args.variant
     )
 
-    if model_has_vae(args):
+    if False:
         vae = AutoencoderKL.from_pretrained(
             args.pretrained_model_name_or_path, subfolder="vae", revision=args.revision, variant=args.variant
         )
     else:
+        print("BLAISE no vae")
         vae = None
 
     unet = UNet2DConditionModel.from_pretrained(
